@@ -1,8 +1,8 @@
 .. include:: Includes.txt
 
-=========
+=====================
 femanager_cleverreach
-=========
+=====================
 
 Extends to TYPO3 extension femanager with a CleverReach subscription
 
@@ -15,7 +15,7 @@ Extends to TYPO3 extension femanager with a CleverReach subscription
       femanager_cleverreach
 
    :Version:
-      0.0.1
+      0.0.2
 
    :Language:
       en

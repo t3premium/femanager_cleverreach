@@ -1,0 +1,23 @@
+.. |cleverreach_settings_rest|      image:: ../Images/cleverreach_settings1.png
+.. :align: left
+.. :border: 0
+.. :name: cleverreach_settings_rest
+.. :vspace: 20
+
+.. |cleverreach_settings_fields|      image:: ../Images/cleverreach_settings2.png
+.. :align: left
+.. :border: 0
+.. :name: cleverreach_settings_fields
+.. :vspace: 20
+
+.. |typoscript_constant_editor|      image:: ../Images/typoscript_constant_editor.png
+.. :align: left
+.. :border: 0
+.. :name: typoscript_constant_editor
+.. :vspace: 20
+
+.. |femanager_settings_fields|      image:: ../Images/femanager_settings1.png
+.. :align: left
+.. :border: 0
+.. :name: femanager_settings_fields
+.. :vspace: 20

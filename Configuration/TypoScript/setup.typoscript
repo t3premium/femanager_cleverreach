@@ -1,0 +1,17 @@
+plugin.tx_femanager {
+  settings {
+    finishers {
+      # CleverReach finisher
+      100 {
+        class = T3premium\FemanagerCleverreach\Finisher\CleverReachFinisher
+        config {
+          restUrl = {$plugin.tx_femanager_cleverreach.settings.restUrl}
+          clientId = {$plugin.tx_femanager_cleverreach.settings.clientId}
+          clientLogin = {$plugin.tx_femanager_cleverreach.settings.clientLogin}
+          clientPassword = {$plugin.tx_femanager_cleverreach.settings.clientPassword}
+          groupId = {$plugin.tx_femanager_cleverreach.settings.groupId}
+        }
+      }
+    }
+  }
+}

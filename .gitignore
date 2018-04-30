@@ -1,0 +1,17 @@
+*~
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+nbproject
+*.idea
+*.project
+.buildpath
+.settings
+.TemporaryItems
+.webprj
+.cache
+.php_cs.cache
+.sass-cache
+.session
+composer.lock

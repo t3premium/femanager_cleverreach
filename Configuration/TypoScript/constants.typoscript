@@ -1,0 +1,14 @@
+plugin.tx_femanager_cleverreach {
+  settings {
+    # cat=plugin.tx_femanager_cleverreach//0100; type=text; label= REST URL
+    restUrl = https://rest.cleverreach.com/v2
+    # cat=plugin.tx_femanager_cleverreach//0200; type=int; label= Client id
+    clientId =
+    # cat=plugin.tx_femanager_cleverreach//0100; type=text; label= Client login name
+    clientLogin =
+    # cat=plugin.tx_femanager_cleverreach//0300; type=text; label= Client password
+    clientPassword =
+    # cat=plugin.tx_femanager_cleverreach//0400; type=int; label= Group id
+    groupId =
+  }
+}

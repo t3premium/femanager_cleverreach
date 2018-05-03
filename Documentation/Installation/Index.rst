@@ -17,9 +17,11 @@ Step by step
 CleverReach configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 |cleverreach_settings_rest|
+
 Set the checkbox 'Access to REST-API' in the CleverReach user account
 
 |cleverreach_settings_fields|
+
 Use the field definitions firstname and lastname for your receiver list
 
 TypoScript root template
@@ -31,6 +33,7 @@ TypoScript configuration
 Constant editor
 """""""""""""""
 |typoscript_constant_editor|
+
 Add your CleverReach account data in TypoScript constant editor
 
 Constants
@@ -85,6 +88,7 @@ Plain Text
 Femanager settings
 ^^^^^^^^^^^^^^^^^^
 |femanager_settings_fields|
+
 The following fields are required for the mapping to the CleverReach receiver list
 
 - Firstname

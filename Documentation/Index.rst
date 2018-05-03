@@ -15,7 +15,7 @@ Extends to TYPO3 extension femanager with a CleverReach subscription
       femanager_cleverreach
 
    :Version:
-      0.0.2
+      0.0.3
 
    :Language:
       en

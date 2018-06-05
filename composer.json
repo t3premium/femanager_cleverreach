@@ -1,0 +1,47 @@
+{
+	"name": "t3premium/femanager_cleverreach",
+	"description": "Adds CleverReach subscription to femanager",
+	"keywords": [
+		"typo3",
+		"femanager",
+		"cleverreach",
+		"registration",
+		"feuser",
+		"fe_user"
+	],
+	"homepage": "https://www.t3premium.de",
+	"authors": [
+		{
+			"name": "Samuel Heinz",
+			"role": "Developer",
+			"homepage": "https://www.t3premium.de"
+		}
+	],
+	"type": "typo3-cms-extension",
+	"license": "GPL-2.0-or-later",
+	"require": {
+		"typo3/cms-core": ">=8.7.0 <9.0.0",
+		"in2code/femanager": ">=3.0.0"
+	},
+	"replace": {
+		"femanager_cleverreach": "self.version",
+		"typo3-ter/femanager_cleverreach": "self.version"
+	},
+	"autoload": {
+		"psr-4": {
+			"T3premium\\FemanagerCleverreach\\": "Classes/"
+		}
+	},
+	"scripts": {
+		"post-autoload-dump": [
+			"mkdir -p .Build/Web/typo3conf/ext/",
+			"[ -L .Build/Web/typo3conf/ext/femanager_cleverreach ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/femanager_cleverreach"
+		]
+	},
+	"extra": {
+		"typo3/cms": {
+			"cms-package-dir": "{$vendor-dir}/typo3/cms",
+			"web-dir": ".Build/Web"
+		}
+	}
+}

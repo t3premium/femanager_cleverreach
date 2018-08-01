@@ -37,9 +37,15 @@ class CleverReachFinisher extends AbstractFinisher
     {
 
         $receivers[] = array(
+		    "attributes" => [
+				"firstname"     => $this->user->getFirstName(),
+				"lastname"      => $this->user->getLastName(),
+			],
+        	"global_attributes" => [
+				"firstname"     => $this->user->getFirstName(),
+				"lastname"      => $this->user->getLastName(),
+			],
             "email"         => $this->user->getEmail(),
-            "firstname"     => $this->user->getFirstName(),
-            "lastname"     => $this->user->getLastName(),
             "registered"    => strtotime("now"),
             "activated"     => strtotime("now"),
         );

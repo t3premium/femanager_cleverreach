@@ -4,8 +4,8 @@ namespace T3premium\FemanagerCleverreach\Service;
 /**
  * Class ConfigurationService
  */
-class ConfigurationService {
-
+class ConfigurationService
+{
 
     /**
      * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface
@@ -13,8 +13,8 @@ class ConfigurationService {
      */
     protected $objectManager;
 
-
-    public function getConfiguration() {
+    public function getConfiguration()
+    {
         /**
          * @var \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface
          * $configurationManager
@@ -30,27 +30,26 @@ class ConfigurationService {
     /**
      * @return string
      */
-    public function getRestUrl() {
-
+    public function getRestUrl()
+    {
         $config = $this->getConfiguration();
         return $config['restUrl'];
-
     }
 
     /**
      * @return int
      */
-    public function getClientId() {
-
+    public function getClientId()
+    {
         $config = $this->getConfiguration();
         return (int)$config['clientId'];
-
     }
 
     /**
      * @return string
      */
-    public function getClientLogin() {
+    public function getClientLogin()
+    {
         $config = $this->getConfiguration();
         return $config['clientLogin'];
     }
@@ -58,7 +57,8 @@ class ConfigurationService {
     /**
      * @return string
      */
-    public function getClientPassword() {
+    public function getClientPassword()
+    {
         $config = $this->getConfiguration();
         return $config['clientPassword'];
     }
@@ -66,7 +66,8 @@ class ConfigurationService {
     /**
      * @return int
      */
-    public function getGroupId() {
+    public function getGroupId()
+    {
         $config = $this->getConfiguration();
         return (int)$config['groupId'];
     }

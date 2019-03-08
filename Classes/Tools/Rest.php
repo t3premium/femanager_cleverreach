@@ -2,20 +2,18 @@
 namespace T3premium\FemanagerCleverreach\Tools;
 
 /**
-* Customizations on this file:
-* - rename file to "Rest.php"
-* - rename class to "class REST"
-* - add namespace on top "namespace T3premium\FemanagerCleverreach\Tools;"
-*/
-
+ * Customizations on this file:
+ * - rename file to "Rest.php"
+ * - rename class to "class REST"
+ * - add namespace on top "namespace T3premium\FemanagerCleverreach\Tools;"
+ */
 class Rest
 {
-
     public $data = false;
-    public $url = "http://nourl.com";
+    public $url = 'http://nourl.com';
 
-    public $postFormat = "json";
-    public $returnFormat = "json";
+    public $postFormat = 'json';
+    public $returnFormat = 'json';
 
     public $authMode = false;
     public $authModeSettings = false;
@@ -27,12 +25,11 @@ class Rest
     public $header = false;
     public $error = false;
 
-    public function __construct($url = "http://nourl.com")
+    public function __construct($url = 'http://nourl.com')
     {
         $this->url = rtrim($url, '/');
         $this->authModeSettings = new \stdClass;
         $this->debugValues = new \stdClass;
-
     }
 
     /**
@@ -40,33 +37,33 @@ class Rest
      * @param string    jwt, webauth,none
      * @param mixed
      */
-    public function setAuthMode($mode = "none", $value = false)
+    public function setAuthMode($mode = 'none', $value = false)
     {
         switch ($mode) {
             case 'jwt':
-                $this->authMode = "jwt";
+                $this->authMode = 'jwt';
                 $this->authModeSettings->token = $value;
                 break;
 
             case 'bearer':
-                $this->authMode = "bearer";
+                $this->authMode = 'bearer';
                 $this->authModeSettings->token = $value;
                 break;
 
             case 'webauth':
-                $this->authMode = "webauth";
+                $this->authMode = 'webauth';
                 $this->authModeSettings->login = $value->login;
                 $this->authModeSettings->password = $value->password;
 
                 break;
 
             default:
-                # code...
+                // code...
                 break;
         }
     }
 
-    ################################################################################################
+    //###############################################################################################
 
     /**
      * makes a GET call
@@ -74,17 +71,17 @@ class Rest
      * @param  string   get/put/delete
      * @return mixed
      */
-    public function get($path, $data = false, $mode = "get")
+    public function get($path, $data = false, $mode = 'get')
     {
         $this->resetDebug();
         if (is_string($data)) {
             if (!$data = json_decode($data)) {
-                throw new \Exception("data is string but no JSON");
+                throw new \Exception('data is string but no JSON');
             }
         }
 
-        $url = sprintf("%s?%s", $this->url . $path, ($data ? http_build_query($data) : ""));
-        $this->debug("url", $url);
+        $url = sprintf('%s?%s', $this->url . $path, ($data ? http_build_query($data) : ''));
+        $this->debug('url', $url);
 
         $curl = curl_init($url);
         $this->setupCurl($curl);
@@ -92,11 +89,11 @@ class Rest
         switch ($mode) {
             case 'delete':
                 curl_setopt($curl, CURLOPT_CUSTOMREQUEST, strtoupper($mode));
-                $this->debug("mode", strtoupper($mode));
+                $this->debug('mode', strtoupper($mode));
                 break;
 
             default:
-                $this->debug("mode", "GET");
+                $this->debug('mode', 'GET');
                 break;
         }
 
@@ -108,7 +105,6 @@ class Rest
         $this->debugEndTimer();
 
         return $this->returnResult($curl_response, $headers);
-
     }
 
     /**
@@ -118,7 +114,7 @@ class Rest
      */
     public function delete($path, $data = false)
     {
-        return $this->get($path, $data, "delete");
+        return $this->get($path, $data, 'delete');
     }
 
     /**
@@ -128,7 +124,7 @@ class Rest
      */
     public function put($path, $data = false)
     {
-        return $this->post($path, $data, "put");
+        return $this->post($path, $data, 'put');
     }
 
     /**
@@ -136,13 +132,13 @@ class Rest
      * @param  [type]
      * @return [type]
      */
-    public function post($path, $data, $mode = "post")
+    public function post($path, $data, $mode = 'post')
     {
         $this->resetDebug();
-        $this->debug("url", $this->url . $path);
+        $this->debug('url', $this->url . $path);
         if (is_string($data)) {
             if (!$data = json_decode($data)) {
-                throw new \Exception("data is string but no JSON");
+                throw new \Exception('data is string but no JSON');
             }
         }
         $curl_post_data = $data;
@@ -153,7 +149,7 @@ class Rest
 
         switch ($mode) {
             case 'put':
-                curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+                curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PUT');
                 break;
 
             default:
@@ -161,9 +157,9 @@ class Rest
                 break;
         }
 
-        $this->debug("mode", strtoupper($mode));
+        $this->debug('mode', strtoupper($mode));
 
-        if ($this->postFormat == "json") {
+        if ($this->postFormat == 'json') {
             $curl_post_data = json_encode($curl_post_data);
         }
 
@@ -174,10 +170,9 @@ class Rest
 
         $this->debugEndTimer();
         return $this->returnResult($curl_response, $headers);
-
     }
 
-    ##########################################################################
+    //#########################################################################
 
     /**
      * [resetDebug description]
@@ -217,8 +212,7 @@ class Rest
      */
     private function setupCurl(&$curl)
     {
-
-        $header = array();
+        $header = [];
 
         switch ($this->postFormat) {
             case 'json':
@@ -232,7 +226,7 @@ class Rest
 
         switch ($this->authMode) {
             case 'webauth':
-                curl_setopt($curl, CURLOPT_USERPWD, $this->authModeSettings->login . ":" . $this->authModeSettings->password);
+                curl_setopt($curl, CURLOPT_USERPWD, $this->authModeSettings->login . ':' . $this->authModeSettings->password);
                 break;
 
             case 'jwt':
@@ -245,7 +239,7 @@ class Rest
                 break;
 
             default:
-                # code...
+                // code...
                 break;
         }
 
@@ -262,8 +256,8 @@ class Rest
     {
         $this->header = $header;
 
-        if ($this->checkHeader && isset($header["http_code"])) {
-            if ($header["http_code"] < 200 || $header["http_code"] >= 300) {
+        if ($this->checkHeader && isset($header['http_code'])) {
+            if ($header['http_code'] < 200 || $header['http_code'] >= 300) {
                 //error!?
                 $this->error = $in;
                 $message = var_export($in, true);
@@ -273,12 +267,10 @@ class Rest
                     }
                 }
                 if ($this->throwExceptions) {
-                    throw new \Exception('' . $header["http_code"] . ';' . $message);
+                    throw new \Exception('' . $header['http_code'] . ';' . $message);
                 }
                 $in = null;
-
             }
-
         }
 
         switch ($this->returnFormat) {
@@ -295,8 +287,7 @@ class Rest
 
     public function microtime_float()
     {
-        list($usec, $sec) = explode(" ", microtime());
-        return ((float) $usec + (float) $sec);
+        list($usec, $sec) = explode(' ', microtime());
+        return (float)$usec + (float)$sec;
     }
-
 }

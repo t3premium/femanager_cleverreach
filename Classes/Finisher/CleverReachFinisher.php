@@ -51,6 +51,6 @@ class CleverReachFinisher extends AbstractFinisher
         );
 
         // Add new receiver to CleverReach
-        $this->api->addReceiversToGroup($receivers,$groupId);
+        $this->api->addReceiversToGroup($receivers,$this->configuration['groupId']);
     }
 }

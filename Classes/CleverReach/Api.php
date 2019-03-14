@@ -18,7 +18,6 @@ class Api
 
     public function connect()
     {
-
         if ($this->rest !== null) {
             return;
         }
@@ -26,13 +25,15 @@ class Api
         $this->rest = new Rest($this->configurationService->getRestUrl());
 
         // Get CleverReach connection data of typoscript
-        $token = $this->rest->post('/login',
+        $token = $this->rest->post(
+            '/login',
             [
                 'client_id' => $this->configurationService->getClientId(),
                 'login' => $this->configurationService->getClientLogin(),
                 'password' => $this->configurationService->getClientPassword()
             ]
         );
+
         $this->rest->setAuthMode('bearer', $token);
     }
 
@@ -52,9 +53,9 @@ class Api
             $groupId = $this->configurationService->getGroupId();
         }
 
-        $return = $this->rest->post('/groups/' . $groupId . '/receivers',
+        $return = $this->rest->post(
+            '/groups/' . $groupId . '/receivers',
             $receivers
         );
     }
-
 }

@@ -35,22 +35,21 @@ class CleverReachFinisher extends AbstractFinisher
      */
     public function crFinisher()
     {
-
-        $receivers[] = array(
-		    "attributes" => [
-				"firstname"     => $this->user->getFirstName(),
-				"lastname"      => $this->user->getLastName(),
-			],
-        	"global_attributes" => [
-				"firstname"     => $this->user->getFirstName(),
-				"lastname"      => $this->user->getLastName(),
-			],
+        $receivers[] = [
+            "attributes" => [
+                "firstname"     => $this->user->getFirstName(),
+                "lastname"      => $this->user->getLastName(),
+            ],
+            "global_attributes" => [
+                "firstname"     => $this->user->getFirstName(),
+                "lastname"      => $this->user->getLastName(),
+            ],
             "email"         => $this->user->getEmail(),
             "registered"    => strtotime("now"),
             "activated"     => strtotime("now"),
-        );
+        ];
 
         // Add new receiver to CleverReach
-        $this->api->addReceiversToGroup($receivers,$this->configuration['groupId']);
+        $this->api->addReceiversToGroup($receivers, $this->configuration['groupId']);
     }
 }

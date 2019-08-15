@@ -9,13 +9,13 @@ Extends to TYPO3 extension femanager with a CleverReach subscription
 .. only:: html
 
    :Copyright:
-      2018
+      2019
 
    :Classification:
       femanager_cleverreach
 
    :Version:
-      1.0.0
+      1.0.1
 
    :Language:
       en

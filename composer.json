@@ -24,7 +24,7 @@
 		"in2code/femanager": ">=5.0.0"
 	},
 	"replace": {
-		"femanager_cleverreach": "self.version",
+		"typo3-ter/femanager_cleverreach": "self.version",
 		"typo3-ter/femanager_cleverreach": "self.version"
 	},
 	"autoload": {

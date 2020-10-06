@@ -19,6 +19,6 @@ femanager_cleverreach adds a cleverreach subscription to the femanager extension
 
 Requirements of femanager_cleverreach
 -------------------------------------
-- TYPO3 9.5
+- TYPO3 10.4
 - Extbase / Fluid
 - femanager

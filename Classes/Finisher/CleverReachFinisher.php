@@ -14,7 +14,7 @@ class CleverReachFinisher extends AbstractFinisher
 
     /**
      * @var \T3premium\FemanagerCleverreach\CleverReach\Api
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $api;
 

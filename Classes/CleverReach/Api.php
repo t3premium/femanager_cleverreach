@@ -7,7 +7,7 @@ class Api
 {
     /**
      * @var \T3premium\FemanagerCleverreach\Service\ConfigurationService
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $configurationService;
 

@@ -6,15 +6,15 @@ $EM_CONF[$_EXTKEY] = [
     'author' => 'Samuel Heinz',
     'author_email' => 'samuel.heinz@t3premium.de',
     'author_company' => 'T3 Premium',
-    'state' => 'beta',
+    'state' => 'stable',
     'uploadfolder' => '0',
     'createDirs' => '',
     'clearCacheOnLoad' => 1,
-    'version' => '1.0.3',
+    'version' => '2.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '8.7.0-9.5.99',
-            'femanager' => '5.2.0',
+            'typo3' => '10.4.0-10.4.99',
+            'femanager' => '6.0.1',
         ],
     ],
 ];

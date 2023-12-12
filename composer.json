@@ -20,8 +20,8 @@
 	"type": "typo3-cms-extension",
 	"license": "GPL-2.0-or-later",
 	"require": {
-		"typo3/cms-core": "^10.4.0",
-		"in2code/femanager": "^6.0.1"
+		"typo3/cms-core": "^11.5.0",
+		"in2code/femanager": "^7.0.0"
 	},
 	"replace": {
 		"typo3-ter/femanager_cleverreach": "self.version"
@@ -29,18 +29,6 @@
 	"autoload": {
 		"psr-4": {
 			"T3premium\\FemanagerCleverreach\\": "Classes/"
-		}
-	},
-	"scripts": {
-		"post-autoload-dump": [
-			"mkdir -p .Build/Web/typo3conf/ext/",
-			"[ -L .Build/Web/typo3conf/ext/femanager_cleverreach ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/femanager_cleverreach"
-		]
-	},
-	"extra": {
-		"typo3/cms": {
-			"cms-package-dir": "{$vendor-dir}/typo3/cms",
-			"web-dir": ".Build/Web"
 		}
 	}
 }

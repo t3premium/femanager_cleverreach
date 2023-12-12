@@ -23,6 +23,11 @@
 		"typo3/cms-core": "^11.5.0",
 		"in2code/femanager": "^7.0.0"
 	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "femanager_cleverreach"
+		}
+	},
 	"replace": {
 		"typo3-ter/femanager_cleverreach": "self.version"
 	},

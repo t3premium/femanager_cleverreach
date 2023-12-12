@@ -1,11 +1,13 @@
 <?php
-defined('TYPO3_MODE') or die();
+
+defined('TYPO3') or die();
+
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 /***************
  * Default TypoScript
  */
-// @extensionScannerIgnoreLine
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
+ExtensionManagementUtility::addStaticFile(
     'femanager_cleverreach',
     'Configuration/TypoScript/',
     'femanager CleverReach'

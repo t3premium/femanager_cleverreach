@@ -1,5 +1,9 @@
 <?php
+
 namespace T3premium\FemanagerCleverreach\Service;
+
+use TYPO3\CMS\Extbase\Object\ObjectManagerInterface;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 
 /**
  * Class ConfigurationService
@@ -7,21 +11,25 @@ namespace T3premium\FemanagerCleverreach\Service;
 class ConfigurationService
 {
     /**
-     * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface
-     * @TYPO3\CMS\Extbase\Annotation\Inject
+     * @var ObjectManagerInterface
      */
     protected $objectManager;
+
+    public function injectObjectManager(ObjectManagerInterface $objectManager): void
+    {
+        $this->objectManager = $objectManager;
+    }
 
 
     public function getConfiguration()
     {
         /**
-         * @var \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface
+         * @var ConfigurationManagerInterface
          * $configurationManager
          */
         $configurationManager = $this->objectManager->get('TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface');
         $settings = $configurationManager->getConfiguration(
-            \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT,
+            ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT,
             'femanager'
         );
         return $settings['plugin.']['tx_femanager.']['settings.']['finishers.']['100.']['config.'];

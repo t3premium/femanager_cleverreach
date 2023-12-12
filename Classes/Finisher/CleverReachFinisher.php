@@ -1,6 +1,8 @@
 <?php
+
 namespace T3premium\FemanagerCleverreach\Finisher;
 
+use T3premium\FemanagerCleverreach\CleverReach\Api;
 use In2code\Femanager\Domain\Model\User;
 use In2code\Femanager\Finisher\AbstractFinisher;
 
@@ -11,10 +13,8 @@ use In2code\Femanager\Finisher\AbstractFinisher;
  */
 class CleverReachFinisher extends AbstractFinisher
 {
-
     /**
-     * @var \T3premium\FemanagerCleverreach\CleverReach\Api
-     * @TYPO3\CMS\Extbase\Annotation\Inject
+     * @var Api
      */
     protected $api;
 
@@ -28,6 +28,11 @@ class CleverReachFinisher extends AbstractFinisher
      */
     protected $configuration;
 
+    public function injectApi(Api $api): void
+    {
+        $this->api = $api;
+    }
+
     /**
      * CrFinisher
      *
@@ -36,17 +41,17 @@ class CleverReachFinisher extends AbstractFinisher
     public function crFinisher()
     {
         $receivers[] = [
-            "attributes" => [
-                "firstname"     => $this->user->getFirstName(),
-                "lastname"      => $this->user->getLastName(),
+            'attributes' => [
+                'firstname' => $this->user->getFirstName(),
+                'lastname' => $this->user->getLastName(),
             ],
-            "global_attributes" => [
-                "firstname"     => $this->user->getFirstName(),
-                "lastname"      => $this->user->getLastName(),
+            'global_attributes' => [
+                'firstname' => $this->user->getFirstName(),
+                'lastname' => $this->user->getLastName(),
             ],
-            "email"         => $this->user->getEmail(),
-            "registered"    => strtotime("now"),
-            "activated"     => strtotime("now"),
+            'email' => $this->user->getEmail(),
+            'registered' => strtotime('now'),
+            'activated' => strtotime('now'),
         ];
 
         // Add new receiver to CleverReach

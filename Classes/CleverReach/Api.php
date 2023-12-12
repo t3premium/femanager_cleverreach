@@ -1,13 +1,14 @@
 <?php
+
 namespace T3premium\FemanagerCleverreach\CleverReach;
 
+use T3premium\FemanagerCleverreach\Service\ConfigurationService;
 use T3premium\FemanagerCleverreach\Tools\Rest;
 
 class Api
 {
     /**
-     * @var \T3premium\FemanagerCleverreach\Service\ConfigurationService
-     * @TYPO3\CMS\Extbase\Annotation\Inject
+     * @var ConfigurationService
      */
     protected $configurationService;
 
@@ -15,6 +16,11 @@ class Api
      * @var Rest
      */
     protected $rest;
+
+    public function injectConfigurationService(ConfigurationService $configurationService): void
+    {
+        $this->configurationService = $configurationService;
+    }
 
     public function connect()
     {

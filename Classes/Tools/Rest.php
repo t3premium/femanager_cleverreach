@@ -1,4 +1,5 @@
 <?php
+
 namespace T3premium\FemanagerCleverreach\Tools;
 
 /**
